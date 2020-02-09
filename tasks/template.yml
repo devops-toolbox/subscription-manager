@@ -1,0 +1,10 @@
+---
+# Template configuration files for subscription-manager
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ subscription-manager_templates_copy }}"
+  when: subscription-manager_copy_templates

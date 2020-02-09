@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+subscription-manager_repos_create: "{{ _subscription-manager_repos_create['all']
+  | union ( _subscription-manager_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+subscription-manager_repos_download: "{{ _subscription-manager_repos_download['all']
+  | union ( _subscription-manager_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+subscription-manager_templates_copy: "{{ _subscription-manager_templates_copy['all']
+  | union ( _subscription-manager_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+subscription-manager_services_enable: "{{ _subscription-manager_services_enable['all']
+  | union ( _subscription-manager_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+subscription-manager_selinux_enable: "{{ _subscription-manager_selinux_enable['all']
+  | union ( _subscription-manager_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+subscription-manager_packages_remove: "{{ _subscription-manager_packages_remove['all']
+  | union ( _subscription-manager_packages_remove[my_os]
+  | default([]) ) }}"
+subscription-manager_packages_repos: "{{ _subscription-manager_packages_repos['all']
+  | union ( _subscription-manager_packages_repos[my_os]
+  | default([]) ) }}"
+subscription-manager_packages_prereq: "{{ _subscription-manager_packages_prereq['all']
+  | union ( _subscription-manager_packages_prereq[my_os]
+  | default([]) ) }}"
+subscription-manager_packages_install: "{{ _subscription-manager_packages_install['all']
+  | union ( _subscription-manager_packages_install[my_os]
+  | default([]) ) }}"

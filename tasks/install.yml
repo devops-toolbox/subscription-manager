@@ -1,0 +1,27 @@
+---
+# Install subscription-manager packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ subscription-manager_packages_remove }}"
+    state: absent
+  become: true
+  when: subscription-manager_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ subscription-manager_packages_repos }}"
+    state: "{{ subscription-manager_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ subscription-manager_packages_prereq }}"
+    state: "{{ subscription-manager_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ subscription-manager_packages_install }}"
+    state: "{{ subscription-manager_packages_state }}"
+  become: true
