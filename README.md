@@ -8,10 +8,10 @@ subscription-manager: Subscription-manager
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.subscription-manager](https://galaxy.ansible.com/devops-toolbox.subscription-manager)
+[https://galaxy.ansible.com/devopstoolbox.subscription-manager](https://galaxy.ansible.com/devopstoolbox.subscription-manager)
 
 ```bash
-ansible-galaxy install devops-toolbox.subscription-manager
+ansible-galaxy install devopstoolbox.subscription-manager
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: subscription-manager is configured
       import_role:
-        name: devops-toolbox.subscription-manager
+        name: devopstoolbox.subscription-manager
       vars:
         subscription-manager_packages_state: present
         subscription-manager_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
